@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- UIkit CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+        <!-- UIkit JS -->
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="uk-navbar-container uk-margin-auto" uk-navbar>
+            <div class="uk-navbar-left">
+    
+                <ul class="uk-navbar-nav">
+                    <a class="uk-navbar-item uk-logo" href="{{ url_for("home") }}">Recipe Finder</a>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="{{ url_for("home") }}">HOME</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for("faq") }}">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--Parallax code-->
+        <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="offset-top: true" uk-parallax="bgy: -300"
+            style="background-image: url('https://i.imgur.com/FoGPItt.jpg');">
+            <div class="uk-width-1-1@m uk-text-center uk-margin uk-margin-auto-vertical">
+                <form action="upload" method="post" enctype="multipart/form-data">
+                    <div class="uk-position-center" style="width:800px">
+                        <div class="uk-margin-top">
+                            <span uk-icon="icon: cloud-upload"></span>
+                            <input type="file" name="image" accept="image/*" id="image" required>
+                        </div>
+                        </br>
+                        <div class="col-3 uk-position-center">
+                            <input type="number" min="1" max="25" class="form-control" name="amount" placeholder="Number of results">
+                        </div>
+                        </br>
+                        <div class="uk-margin-top">
+                            <input class="uk-button uk-button-default" type="submit" name="submit" value="submit" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </body>
+</html>

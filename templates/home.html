@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- UIkit CSS -->
+    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
+
+    	<!-- UIkit JS -->
+    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    	<nav class="uk-navbar-container uk-margin-auto" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <a class="uk-navbar-item uk-logo" href="{{ url_for("home")}}">Recipe Finder</a>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="{{ url_for("home") }}">HOME</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for("faq") }}">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--Parallax code-->
+        <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="    offset-top: true" uk-parallax="bgy: -300"
+            style="background-image: url('https://i.imgur.com/FoGPItt.jpg');">
+            <div class="uk-width-1-1@m uk-text-center uk-margin-auto uk-margin-auto-vertical">
+                <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+                    <h1><span class="uk-text-background"></span></h1>
+                    <h1 class="uk-heading-medium uk-text-normal uk-text-center uk-text-primary">Find any recipe using one of the options below!</h1>
+                </div>
+                <p uk-margin>
+                    <a class="uk-button uk-button-default" href="{{ url_for("searchByIngredients") }}">Search</a>
+                    <a class="uk-button uk-button-primary" href="{{ url_for("imagesubmit") }}">Upload</a>
+                </p>
+            </div>  
+        </div>
+    </body>
+</html>

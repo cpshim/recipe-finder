@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+</head>
+
+<body>
+    <nav class="uk-navbar-container uk-margin-auto" uk-navbar>
+        <div class="uk-navbar-left">
+
+            <ul class="uk-navbar-nav">
+                <a class="uk-navbar-item uk-logo" href="{{ url_for("home") }}">Recipe Finder</a>
+        </div>
+        <div class="uk-navbar-right">
+            <ul class="uk-navbar-nav">
+                <li>
+                    <a href="{{ url_for("home") }}">HOME</a>
+                </li>
+                <li>
+                    <a href="{{ url_for("faq") }}">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="uk-margin uk-padding">
+        {% set height = (num / 3 + 1) | int %}
+        {% set currentIndex = [] %}
+        {% set lastIndex = [1,1,1] %}
+        {% for i in range(height) %}
+        <div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
+            {% for j in data[currentIndex|length:lastIndex|length] %}
+            <div>
+                <div class="uk-card-hover uk-card-default uk-card-body uk-text-left">
+                    <h3 class="uk-card-title uk-text-center">{{j["title"]}}</h3>
+                    <p>Number of Missing Ingredients: {{j["missedIngredientCount"]}}</p>
+                    {% set numMissing = j["missedIngredientCount"] %}
+                    {% set missed = j["missedIngredients"] %}
+                    <ul class="uk-list uk-list-bullet">
+                    {% for h in range(numMissing) %}
+                        <li><p>{{missed[h]["amount"]}} {{missed[h]["name"]}}</p></li>
+                    {% endfor %}
+                    </ul>
+                    <div class="uk-card-media-top uk-text-center">
+                        <img src={{ j["image"] }} alt="">
+                    </div>
+                    <p><span class="uk-margin-small-right" uk-icon="heart"></span> {{j["likes"]}}</p>
+                </div>
+            </div>
+            {% endfor %}
+            {% if currentIndex.append(1) %} {% endif %}
+            {% if currentIndex.append(1) %} {% endif %}
+            {% if currentIndex.append(1) %} {% endif %}
+            {% if lastIndex.append(1) %} {% endif %}
+            {% if lastIndex.append(1) %} {% endif %}
+            {% if lastIndex.append(1) %} {% endif %}
+            {% if lastIndex|length > num-1 %}
+                {% set diff = (num-1) - lastIndex|length %}
+                {% for a in range(diff) %}
+                    {% if lastIndex.remove(1) %} {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

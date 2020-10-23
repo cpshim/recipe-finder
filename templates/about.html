@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FAQ</title>
+        <meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<!-- UIkit CSS -->
+    	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/css/uikit.min.css" />
+
+    	<!-- UIkit JS -->
+    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit.min.js"></script>
+    	<script src="https://cdn.jsdelivr.net/npm/uikit@3.3.6/dist/js/uikit-icons.min.js"></script>
+    </head>
+    <body>
+    	<nav class="uk-navbar-container uk-margin-auto" uk-navbar>
+            <div class="uk-navbar-left">
+
+                <ul class="uk-navbar-nav">
+                    <a class="uk-navbar-item uk-logo" href="{{ url_for("home") }}">Recipe Finder</a>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="{{ url_for("home") }}">HOME</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for("faq") }}">FAQ</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="uk-background-cover uk-light uk-flex" uk-height-viewport="offset-top: true" uk-parallax="bgy: -300"
+            style="background-image: url('https://i.imgur.com/FoGPItt.jpg');">
+
+            <div class='uk-position-center' style="width:800px">
+            	<ul uk-accordion>
+			    <li class="uk-open">
+			        <a class="uk-accordion-title" href="#">About Us</a>
+			        <div class="uk-accordion-content ">
+			            <p>We are a group of engineers from Ryerson University who wanted to create a tool to encourage people to use whatever ingredients they had in their kitchen to cook something uplifting during these unprecedented times. We hope that the tool we created helps people to easily find recipes using whatever spare foodstuffs they have lying around. </p>
+			        </div>
+			    </li>
+			    <li>
+			        <a class="uk-accordion-title" href="#">How to use the website</a>
+			        <div class="uk-accordion-content">
+			            <p>At the home page, select the option to find a recipe using a word search tool, utilizing Spoonacular API, or by uploading a picture of your available ingredients, utilizing Google's Vision API. Input the amount of recipes you'd like to consider, and the website will provide recipes, prioritizing those for which you have the most ingredients for.</p>
+			        </div>
+			    </li>
+			    <li>
+			        <a class="uk-accordion-title" href="#">Contact Us</a>
+			        <div class="uk-accordion-content">
+			            <p>You can't</p>
+			        </div>
+			    </li>
+			</ul>
+        	</div>
+        </div>
+
+    </body>
+</html>
